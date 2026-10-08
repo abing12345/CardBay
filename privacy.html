@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>隐私政策 · CardBay 卡备</title>
+<meta name="description" content="CardBay（卡备）隐私政策：不收集、不上传任何个人信息与照片，所有操作都在你的 Mac 本地完成。">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+<script>
+  (function () {
+    var saved = null;
+    try { saved = localStorage.getItem("cardbay-lang"); } catch (e) {}
+    var lang = saved || "zh";
+    document.documentElement.setAttribute("lang", lang === "en" ? "en" : "zh-Hans");
+    document.addEventListener("DOMContentLoaded", function () {
+      document.body.setAttribute("data-lang", lang);
+      var btn = document.getElementById("langBtn");
+      if (btn) {
+        btn.textContent = lang === "en" ? "中文" : "English";
+        btn.addEventListener("click", function () {
+          var next = document.body.getAttribute("data-lang") === "en" ? "zh" : "en";
+          document.body.setAttribute("data-lang", next);
+          document.documentElement.setAttribute("lang", next === "en" ? "en" : "zh-Hans");
+          btn.textContent = next === "en" ? "中文" : "English";
+          try { localStorage.setItem("cardbay-lang", next); } catch (e) {}
+        });
+      }
+    });
+  })();
+</script>
+</head>
+<body data-lang="zh">
+<div class="wrap">
+
+  <header>
+    <div class="logo">CB</div>
+    <div class="titles">
+      <h1><span class="zh">隐私政策</span><span class="en">Privacy Policy</span></h1>
+      <p class="zh">CardBay 卡备 · 生效日期 2026-10-07</p>
+      <p class="en">CardBay &middot; Effective 7 October 2026</p>
+    </div>
+    <nav class="top">
+      <a href="index.html"><span class="zh">支持</span><span class="en">Support</span></a>
+      <a href="privacy.html" class="now"><span class="zh">隐私政策</span><span class="en">Privacy</span></a>
+      <button class="lang" id="langBtn" type="button">English</button>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <p class="lead zh">一句话：<b>卡备不收集、不上传你的任何个人信息，也不上传你的照片。</b></p>
+    <p class="lead en">In one sentence: <b>CardBay collects nothing, uploads nothing, and never sends your photos anywhere.</b></p>
+    <p class="muted zh">所有导入都在你自己的 Mac 上、在你指定的磁盘之间完成。App 本身不发起任何网络请求。</p>
+    <p class="muted en">Every import happens on your own Mac, between the disks you choose. The app itself makes no network requests.</p>
+  </div>
+
+  <!-- ================= 中文 ================= -->
+  <div class="zh">
+
+    <h2>1. 适用范围</h2>
+    <p>本政策适用于 macOS 应用 <b>CardBay（中文名：卡备）</b>，包括你从 Mac App Store 下载的版本以及它的后续更新。</p>
+
+    <h2>2. 我们收集哪些信息</h2>
+    <p><b>什么都不收集。</b>具体地说：</p>
+    <ul>
+      <li>没有账号体系，不需要注册，不需要提供姓名、邮箱或手机号；</li>
+      <li>没有统计分析、没有崩溃上报、没有广告 SDK；</li>
+      <li>不使用任何跨 App 追踪，也不建立任何用于广告或画像的标识符；</li>
+      <li>不读取你的通讯录、日历、位置、麦克风、相机或任何与导入无关的数据。</li>
+    </ul>
+
+    <h2>3. 你的数据保存在哪里</h2>
+    <p>卡备运行时产生的所有数据都留在你自己的 Mac 上：</p>
+    <table>
+      <tr>
+        <th>数据</th><th>存放位置</th><th>是否外发</th>
+      </tr>
+      <tr>
+        <td>照片与视频文件</td>
+        <td>只从你授权的存储卡复制到你选择的目标文件夹</td>
+        <td>否</td>
+      </tr>
+      <tr>
+        <td>界面偏好（语言、排序方式、上次的选择等）</td>
+        <td>本机 App 容器内的偏好设置</td>
+        <td>否</td>
+      </tr>
+      <tr>
+        <td>授权记录（安全作用域书签）</td>
+        <td>本机 App 容器内，用于下次免重复授权访问同一张卡或文件夹</td>
+        <td>否</td>
+      </tr>
+      <tr>
+        <td>购买状态（是否已解锁完整版）</td>
+        <td>本机记录，来源于 App Store 的交易信息</td>
+        <td>否</td>
+      </tr>
+      <tr>
+        <td>运行日志</td>
+        <td>本机 App 容器内，仅用于你自己排查问题</td>
+        <td>否</td>
+      </tr>
+    </table>
+    <p class="muted">App 容器位于 <code>~/Library/Containers/com.abing.cardbay.mas</code>，你可以随时查看或删除。</p>
+
+    <h2>4. 网络访问与内购</h2>
+    <ul>
+      <li><b>App 本身不发起网络请求</b>，也不包含任何第三方联网组件。</li>
+      <li>唯一涉及网络的动作是<b>购买或恢复购买</b>：它由 App Store 的系统内购流程完成。</li>
+      <li>支付信息（支付方式、账单姓名、地址等）<b>由 Apple 处理，我们不接触、也无法获取</b>。卡备只会从系统得知「这台设备当前是否已购买」，用来决定是否解锁完整功能。</li>
+      <li>Apple 对相关数据的处理适用 <a href="https://www.apple.com/legal/privacy/" rel="noopener">Apple 隐私政策</a>。</li>
+    </ul>
+
+    <h2>5. 权限与沙盒</h2>
+    <p>卡备在 macOS 的沙盒（App Sandbox）中运行，只在你<b>明确授权</b>的范围内访问文件。它会请求的权限只有三类，每一项都只服务于一个具体功能：</p>
+    <ul>
+      <li><b>可移除卷（存储卡）</b> —— 读取卡里的照片；</li>
+      <li><b>桌面文件夹</b> —— 在桌面放置一个快捷方式；</li>
+      <li><b>文稿文件夹</b> —— 把照片导入到你选择的文件夹。</li>
+    </ul>
+    <p>你可以在「系统设置 → 隐私与安全性」里随时收回这些授权；收回后卡备将无法读取相应位置，但不会影响你已经导入到磁盘上的文件。</p>
+
+    <h2>6. 第三方</h2>
+    <p>卡备不含任何第三方分析、广告、追踪或社交 SDK。我们不向任何第三方出售、出租或共享你的数据 —— 因为我们根本没有接触到这些数据。</p>
+
+    <h2>7. 数据的保留与删除</h2>
+    <ul>
+      <li>卸载卡备（把 App 拖进废纸篓）即可停止一切本地处理。</li>
+      <li>如需一并清除本机设置与记录，删除容器目录 <code>~/Library/Containers/com.abing.cardbay.mas</code> 即可。</li>
+      <li>你在 App Store 的购买记录由 Apple 保留和管理，不受卸载影响，也无法由我们代为删除。</li>
+    </ul>
+
+    <h2>8. 儿童隐私</h2>
+    <p>卡备不是面向儿童的产品，也不会收集任何用户（包括儿童）的个人信息。</p>
+
+    <h2>9. 关于你的隐私权利</h2>
+    <p>由于卡备不收集、不存储、不传输任何个人信息，因此不存在需要我们提供、更正或删除的个人数据 —— 包括在 GDPR、CCPA 等法律框架下通常需要响应的那类请求。你对自己机器上的文件拥有完全控制权。</p>
+
+    <h2>10. 本政策的变更</h2>
+    <p>如果本政策有实质变更，我们会更新本页面并修改顶部的生效日期。建议你在购买新版本或遇到疑问时回看本页。</p>
+
+    <h2>11. 联系我们</h2>
+    <p>对本政策或数据处理的任何疑问，欢迎写信到 <a href="mailto:imeaningwhy@163.com">imeaningwhy@163.com</a>。</p>
+
+  </div>
+
+  <!-- ================= English ================= -->
+  <div class="en">
+
+    <h2>1. Scope</h2>
+    <p>This policy applies to the macOS application <b>CardBay</b>, including the version you download from the Mac App Store and all subsequent updates.</p>
+
+    <h2>2. What we collect</h2>
+    <p><b>Nothing.</b> Specifically:</p>
+    <ul>
+      <li>No accounts. No sign-up, no name, no email address, no phone number.</li>
+      <li>No analytics, no crash reporting, no advertising SDKs.</li>
+      <li>No cross-app tracking, and no identifiers created for advertising or profiling.</li>
+      <li>No access to your contacts, calendar, location, microphone, camera, or anything unrelated to importing photos.</li>
+    </ul>
+
+    <h2>3. Where your data lives</h2>
+    <p>Everything CardBay produces stays on your own Mac:</p>
+    <table>
+      <tr>
+        <th>Data</th><th>Where it is</th><th>Sent out?</th>
+      </tr>
+      <tr>
+        <td>Photo and video files</td>
+        <td>Copied only from the card you authorise to the destination folder you choose</td>
+        <td>No</td>
+      </tr>
+      <tr>
+        <td>Interface preferences (language, sorting, last selection)</td>
+        <td>Preferences inside the app&rsquo;s own container on your Mac</td>
+        <td>No</td>
+      </tr>
+      <tr>
+        <td>Authorisation records (security-scoped bookmarks)</td>
+        <td>Local app container, so the same card or folder need not be authorised again</td>
+        <td>No</td>
+      </tr>
+      <tr>
+        <td>Purchase status (whether the full version is unlocked)</td>
+        <td>A local record derived from App Store transaction information</td>
+        <td>No</td>
+      </tr>
+      <tr>
+        <td>Runtime logs</td>
+        <td>Inside the local app container, for your own troubleshooting</td>
+        <td>No</td>
+      </tr>
+    </table>
+    <p class="muted">The container lives at <code>~/Library/Containers/com.abing.cardbay.mas</code>. You can inspect or delete it at any time.</p>
+
+    <h2>4. Network access and purchases</h2>
+    <ul>
+      <li><b>The app makes no network requests</b> and bundles no third-party networking components.</li>
+      <li>The only network-related action is <b>buying or restoring a purchase</b>, handled by the App Store in-app purchase flow.</li>
+      <li>Payment details (method, billing name, address) are <b>processed by Apple. We never see them.</b> The app only learns whether this device currently owns the purchase, in order to unlock the full feature set.</li>
+      <li>Apple&rsquo;s handling of that data is governed by the <a href="https://www.apple.com/legal/privacy/" rel="noopener">Apple Privacy Policy</a>.</li>
+    </ul>
+
+    <h2>5. Permissions and the sandbox</h2>
+    <p>CardBay runs inside the macOS App Sandbox and only accesses files within the scope <b>you explicitly authorise</b>. It asks for three permissions, each serving one concrete feature:</p>
+    <ul>
+      <li><b>Removable volumes (camera cards)</b> &mdash; to read the photos on your card;</li>
+      <li><b>Desktop folder</b> &mdash; to place a shortcut on your Desktop;</li>
+      <li><b>Documents folder</b> &mdash; to import photos into the folder you choose.</li>
+    </ul>
+    <p>You can revoke any of these at any time in System Settings &rarr; Privacy &amp; Security. Revoking them stops CardBay from reading that location, but does not affect files already imported to your disks.</p>
+
+    <h2>6. Third parties</h2>
+    <p>CardBay contains no third-party analytics, advertising, tracking or social SDKs. We do not sell, rent or share your data with anyone &mdash; we never have access to it in the first place.</p>
+
+    <h2>7. Retention and deletion</h2>
+    <ul>
+      <li>Uninstalling CardBay (dragging it to the Trash) stops all local processing.</li>
+      <li>To also clear local settings and records, delete the container folder <code>~/Library/Containers/com.abing.cardbay.mas</code>.</li>
+      <li>Your App Store purchase record is held by Apple, survives uninstallation, and cannot be deleted by us.</li>
+    </ul>
+
+    <h2>8. Children&rsquo;s privacy</h2>
+    <p>CardBay is not directed at children and collects no personal information from anyone, including children.</p>
+
+    <h2>9. Your privacy rights</h2>
+    <p>Because CardBay does not collect, store or transmit personal information, there is no personal data for us to disclose, correct or delete &mdash; including requests that would ordinarily be answered under frameworks such as the GDPR or CCPA. You retain full control of the files on your own machine.</p>
+
+    <h2>10. Changes to this policy</h2>
+    <p>If this policy changes materially, we will update this page and revise the effective date above. If in doubt, come back and check.</p>
+
+    <h2>11. Contact</h2>
+    <p>Questions about this policy or about data handling? Write to <a href="mailto:imeaningwhy@163.com">imeaningwhy@163.com</a>.</p>
+
+  </div>
+
+  <footer>
+    <span>&copy; 2026 CardBay</span>
+    <a href="index.html"><span class="zh">支持</span><span class="en">Support</span></a>
+    <a href="privacy.html"><span class="zh">隐私政策</span><span class="en">Privacy Policy</span></a>
+    <span class="muted"><span class="zh">最后更新：2026-10-07</span><span class="en">Last updated: 7 Oct 2026</span></span>
+  </footer>
+
+</div>
+</body>
+</html>
