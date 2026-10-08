@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CardBay 卡备 · 支持</title>
+<meta name="description" content="CardBay（卡备）—— macOS 相机存储卡导入工具。插卡自动弹窗，按相机品牌与格式自动分栏，点一下「新拍」只挑出这次拍的。">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+<script>
+  // 语言切换：默认中文；记住选择（localStorage 不可用时静默忽略）
+  (function () {
+    var saved = null;
+    try { saved = localStorage.getItem("cardbay-lang"); } catch (e) {}
+    var lang = saved || "zh";
+    document.documentElement.setAttribute("lang", lang === "en" ? "en" : "zh-Hans");
+    document.addEventListener("DOMContentLoaded", function () {
+      document.body.setAttribute("data-lang", lang);
+      var btn = document.getElementById("langBtn");
+      if (btn) {
+        btn.textContent = lang === "en" ? "中文" : "English";
+        btn.addEventListener("click", function () {
+          var next = document.body.getAttribute("data-lang") === "en" ? "zh" : "en";
+          document.body.setAttribute("data-lang", next);
+          document.documentElement.setAttribute("lang", next === "en" ? "en" : "zh-Hans");
+          btn.textContent = next === "en" ? "中文" : "English";
+          try { localStorage.setItem("cardbay-lang", next); } catch (e) {}
+        });
+      }
+    });
+  })();
+</script>
+</head>
+<body data-lang="zh">
+<div class="wrap">
+
+  <header>
+    <div class="logo">CB</div>
+    <div class="titles">
+      <h1>CardBay 卡备</h1>
+      <p class="zh">macOS 相机存储卡导入工具</p>
+      <p class="en">Camera card importer for macOS</p>
+    </div>
+    <nav class="top">
+      <a href="index.html" class="now"><span class="zh">支持</span><span class="en">Support</span></a>
+      <a href="privacy.html"><span class="zh">隐私政策</span><span class="en">Privacy</span></a>
+      <button class="lang" id="langBtn" type="button">English</button>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <p class="lead zh">插卡 → 勾选 → 导入。卡备把摄影师倒卡的那十几步，压成两三下。</p>
+    <p class="lead en">Insert card &rarr; tick &rarr; import. CardBay turns the ten-odd steps of offloading a card into two or three.</p>
+    <p class="muted zh">摄影师做的 macOS 倒卡工具：插上卡自动弹窗，照片按相机品牌和格式自动分好栏，点一下「新拍」只挑出这次拍的，再点一下就进你常存的文件夹。</p>
+    <p class="muted en">A card offloading tool made by a photographer, for macOS. The window opens by itself when you insert a card; photos are sorted into columns by camera brand and file format; one click on &ldquo;New&rdquo; picks only what you shot today; another click sends them to the folder you always use.</p>
+  </div>
+
+  <h2><span class="zh">主要功能</span><span class="en">What it does</span></h2>
+  <ul>
+    <li><span class="zh"><b>插卡自动弹出</b> —— 插上卡，窗口自己出来。不用找图标，不用先打开软件。</span><span class="en"><b>Opens on insert</b> — plug in a card and the window appears. No hunting for an icon, no launching the app first.</span></li>
+    <li><span class="zh"><b>按「相机品牌 + 格式」自动分栏</b> —— 卡里有什么就分什么栏，RAW 和 JPG 各占一栏。打开就是排好的，不用自己进 DCIM 翻文件夹。</span><span class="en"><b>Columns by brand &amp; format</b> — RAW and JPG each get their own column, brands stay apart. Everything is already laid out; no digging through DCIM.</span></li>
+    <li><span class="zh"><b>「新拍」一键勾选</b> —— 卡里常混着这次拍的、上次没导完的、更早的旧片。点一下「新拍」，只勾出这一次新拍的。</span><span class="en"><b>One-click &ldquo;New&rdquo;</b> — cards often hold today&rsquo;s shots plus leftovers from last time. One click ticks only what is new since your last import.</span></li>
+    <li><span class="zh"><b>每栏独立排序</b> —— 按名称或按时间排，同一个按钮再点一下换方向（正序 ⇄ 倒序）。</span><span class="en"><b>Per-column sorting</b> — sort by name or time; click the same button again to flip the direction.</span></li>
+    <li><span class="zh"><b>大图预览</b> —— 鼠标停在文件上，光标旁就是大图。挑片、排片不用一张张点开看。</span><span class="en"><b>Hover preview</b> — a large preview follows the cursor. Cull and sequence without opening files one by one.</span></li>
+    <li><span class="zh"><b>目标文件夹常驻</b> —— 常用文件夹存成一张张小卡片，可拖动排序、可从访达直接拖进来。导图时点一下就好。</span><span class="en"><b>Destinations always at hand</b> — your usual folders sit as cards on the right; reorder them or drag folders in from Finder.</span></li>
+    <li><span class="zh"><b>同名绝不覆盖</b> —— 目标里已有同名文件，自动加尾号另存一份，绝不会盖掉你已有的原片。</span><span class="en"><b>Never overwrites</b> — if a file with the same name exists, a numbered copy is saved alongside it. Your originals stay untouched.</span></li>
+    <li><span class="zh"><b>导过的不重复导</b> —— 换一个目标文件夹，之前导过的不会再倒一遍。</span><span class="en"><b>No duplicate imports</b> — change the destination and previously imported files are still recognised, not copied again.</span></li>
+    <li><span class="zh"><b>一次插多张卡，只开一个窗口</b> —— 多卡一起处理，按卡分组，不用轮流插、轮流导。</span><span class="en"><b>Several cards, one window</b> — plug in multiple cards and they are grouped inside a single window.</span></li>
+    <li><span class="zh"><b>顺手的清理</b> —— 挑出不要的，直接移进废纸篓（会先问你一次，废纸篓里也能找回）。</span><span class="en"><b>Easy cleanup</b> — move unwanted files to the Trash after a confirmation; they remain recoverable from the Trash.</span></li>
+  </ul>
+
+  <h2><span class="zh">系统要求</span><span class="en">Requirements</span></h2>
+  <div class="card">
+    <div class="kv">
+      <span class="k zh">系统版本</span><span class="k en">macOS</span>
+      <b class="v">13.0 <span class="zh">或更高</span><span class="en">or later</span></b>
+    </div>
+    <div class="kv">
+      <span class="k zh">机型</span><span class="k en">Mac</span>
+      <b class="v zh">Apple 芯片（M 系列）</b><b class="v en">Apple silicon (M-series)</b>
+    </div>
+    <div class="kv">
+      <span class="k zh">获取方式</span><span class="k en">Where to get it</span>
+      <b class="v">Mac App Store</b>
+    </div>
+    <p class="muted zh" style="margin:0">相机存储卡请通过读卡器或相机连接线接入 Mac。只要能挂载到访达的卡，卡备都认。</p>
+    <p class="muted en" style="margin:0">Connect your card through a card reader or the camera itself. Any card that mounts in Finder is supported.</p>
+  </div>
+
+  <h2><span class="zh">价格</span><span class="en">Pricing</span></h2>
+  <p class="zh">在 Mac App Store 免费下载，可先试用 <b>7 天</b>。试用结束后一次买断即可长期使用，不含订阅，不限导入张数。</p>
+  <p class="en">Free to download from the Mac App Store with a <b>7-day</b> trial. When the trial ends, a one-time purchase unlocks the app for good — no subscription, no limit on the number of cards you import.</p>
+
+  <h2><span class="zh">常见问题</span><span class="en">Frequently asked questions</span></h2>
+
+  <details open>
+    <summary><span class="zh">插上卡没有自动弹出窗口？</span><span class="en">The window did not open when I inserted a card.</span></summary>
+    <div class="body">
+      <p class="zh">按顺序检查三件事：① 卡备是否正在运行（如果刚开机，等几秒让后台服务就位）；② 系统设置 → 通用 → 登录项，确认卡备的后台项已被允许；③ 卡是否已经在访达里出现 —— 如果系统本身没挂载这张卡，卡备也读不到。</p>
+      <p class="en">Check three things in order: (1) is CardBay running (after a fresh login, give the background service a moment); (2) System Settings &rarr; General &rarr; Login Items — make sure CardBay&rsquo;s background item is allowed; (3) does the card show up in Finder at all? If macOS has not mounted it, CardBay cannot see it either.</p>
+      <p class="zh">也可以直接打开卡备，窗口里点「刷新」重新扫描一次。</p>
+      <p class="en">You can also just open CardBay and rescan from the window.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="zh">提示「需要授权才能读取存储卡」怎么办？</span><span class="en">It says &ldquo;Card Access Needed&rdquo;. What do I do?</span></summary>
+    <div class="body">
+      <p class="zh">这是 macOS 沙盒的授权提示。点提示里的按钮，在弹出的面板里选中存储卡（或选中整个「位置」一栏），然后按「打开」。授权一次之后，同一张卡下次插上就不用再点了。</p>
+      <p class="en">This is the macOS sandbox asking for permission. Click the button in the prompt, select your card (or the whole &ldquo;Locations&rdquo; section) in the panel, and confirm. Once granted, the same card will not ask again.</p>
+      <p class="zh">卡备只读取你亲自授权过的存储卡与文件夹，不会碰其它位置。</p>
+      <p class="en">CardBay only reads the cards and folders you have explicitly authorised — nothing else.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="zh">换了一台电脑，怎么找回已购买？</span><span class="en">I am on a new Mac. How do I get my purchase back?</span></summary>
+    <div class="body">
+      <p class="zh">用同一 Apple ID 登录后打开卡备，在购买窗口点「恢复购买」即可，不需要重新付费。</p>
+      <p class="en">Sign in with the same Apple ID, open CardBay, and click &ldquo;Restore Purchases&rdquo; in the purchase window. No need to pay again.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="zh">会覆盖我硬盘上的同名文件吗？</span><span class="en">Will it overwrite files that already exist?</span></summary>
+    <div class="body">
+      <p class="zh">不会。目标文件夹里已有同名文件时，卡备会自动加尾号另存，你的原片一个都不会被动。</p>
+      <p class="en">No. If a file with the same name already exists, CardBay saves a numbered copy instead. Your existing files are never modified.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="zh">删掉卡里的照片，能恢复吗？</span><span class="en">I deleted photos from the card — can they be recovered?</span></summary>
+    <div class="body">
+      <p class="zh">卡备的删除是「移进废纸篓」，操作前会先确认一次。在废纸篓被清空之前，都可以从废纸篓里放回去。</p>
+      <p class="en">Deleting in CardBay moves files to the Trash after a confirmation. Until the Trash is emptied, you can put them back.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="zh">照片会被上传到云端吗？</span><span class="en">Are my photos uploaded anywhere?</span></summary>
+    <div class="body">
+      <p class="zh">不会。所有照片只在你自己的磁盘之间复制，卡备不做任何上传。详见<a href="privacy.html">隐私政策</a>。</p>
+      <p class="en">No. Photos are only copied between your own disks. Nothing is uploaded. See the <a href="privacy.html">Privacy Policy</a>.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="zh">怎么切换界面语言？</span><span class="en">How do I change the interface language?</span></summary>
+    <div class="body">
+      <p class="zh">卡备内置中文与英文界面，在菜单里选择「语言」即可切换。</p>
+      <p class="en">CardBay ships with Chinese and English interfaces. Pick your language from the &ldquo;Language&rdquo; item in the menu.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="zh">如何彻底卸载？</span><span class="en">How do I remove it completely?</span></summary>
+    <div class="body">
+      <p class="zh">把卡备从「应用程序」拖进废纸篓即可。如果你还想清掉本机留下的设置与记录，可以在「前往文件夹」里打开 <code>~/Library/Containers/com.abing.cardbay.mas</code> 一并删除。卸载不影响你在 App Store 的购买记录。</p>
+      <p class="en">Drag CardBay from Applications to the Trash. To also remove local settings and records, open <code>~/Library/Containers/com.abing.cardbay.mas</code> via &ldquo;Go to Folder&rdquo; and delete it. Removing the app does not affect your App Store purchase.</p>
+    </div>
+  </details>
+
+  <h2><span class="zh">还有问题？</span><span class="en">Still stuck?</span></h2>
+  <p class="zh">写信给我，说明你的 macOS 版本、相机型号和现象，我会尽快回复：</p>
+  <p class="en">Email me with your macOS version, camera model and what you are seeing, and I will get back to you:</p>
+  <p><a href="mailto:imeaningwhy@163.com">imeaningwhy@163.com</a></p>
+
+  <footer>
+    <span>&copy; 2026 CardBay</span>
+    <a href="index.html"><span class="zh">支持</span><span class="en">Support</span></a>
+    <a href="privacy.html"><span class="zh">隐私政策</span><span class="en">Privacy Policy</span></a>
+    <span class="muted"><span class="zh">最后更新：2026-10-07</span><span class="en">Last updated: 7 Oct 2026</span></span>
+  </footer>
+
+</div>
+</body>
+</html>
