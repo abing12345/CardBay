@@ -1,0 +1,229 @@
+/* ==========================================================================
+   CardBay（卡备）· 官网静态页样式
+   两个页面共用：index.html（支持）/ privacy.html（隐私政策）
+   风格：macOS 原生调性 —— 简洁、扁平、低饱和，浅色/深色自适应
+   ========================================================================== */
+
+:root {
+  --bg: #ffffff;
+  --bg-soft: #f5f5f7;
+  --fg: #1d1d1f;
+  --fg-mute: #6e6e73;
+  --line: #e3e3e6;
+  --accent: #3894a7;          /* 卡备的青蓝（与 App 内的按钮同色系） */
+  --card: #ffffff;
+  --radius: 12px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1c1c1e;
+    --bg-soft: #242427;
+    --fg: #f5f5f7;
+    --fg-mute: #9a9aa0;
+    --line: #333338;
+    --accent: #56aebd;
+    --card: #242427;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  padding: 0 20px 64px;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue",
+               "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap { max-width: 720px; margin: 0 auto; }
+
+/* ---------- 页头 ---------- */
+
+header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 40px 0 22px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 34px;
+}
+
+.logo {
+  width: 46px; height: 46px;
+  border-radius: 11px;
+  background: linear-gradient(160deg, #4aa6b8, #2c7c8d);
+  flex: 0 0 auto;
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 700; font-size: 20px;
+  letter-spacing: -0.5px;
+}
+
+.titles { flex: 1 1 auto; min-width: 0; }
+
+.titles h1 {
+  margin: 0;
+  font-size: 19px;
+  font-weight: 650;
+  letter-spacing: -0.2px;
+}
+
+.titles p {
+  margin: 2px 0 0;
+  font-size: 13.5px;
+  color: var(--fg-mute);
+}
+
+nav.top { flex: 0 0 auto; display: flex; gap: 16px; align-items: center; }
+
+nav.top a {
+  color: var(--fg-mute);
+  text-decoration: none;
+  font-size: 13.5px;
+}
+
+nav.top a:hover { color: var(--accent); }
+nav.top a.now { color: var(--fg); font-weight: 600; }
+
+/* 语言切换 */
+.lang {
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--fg-mute);
+  border-radius: 999px;
+  padding: 3px 12px;
+  font-size: 12.5px;
+  font-family: inherit;
+  cursor: pointer;
+}
+.lang:hover { color: var(--accent); border-color: var(--accent); }
+
+/* ---------- 通用 ---------- */
+
+h2 {
+  font-size: 16px;
+  font-weight: 650;
+  margin: 40px 0 12px;
+  letter-spacing: -0.1px;
+}
+
+h3 { font-size: 15px; font-weight: 600; margin: 26px 0 8px; }
+
+p { margin: 0 0 14px; }
+ul { margin: 0 0 14px; padding-left: 22px; }
+li { margin: 6px 0; }
+li b { font-weight: 620; }
+
+a { color: var(--accent); }
+
+.lead { font-size: 17px; color: var(--fg); }
+
+.muted { color: var(--fg-mute); font-size: 14px; }
+
+.hero {
+  background: var(--bg-soft);
+  border-radius: var(--radius);
+  padding: 26px 26px 22px;
+  margin-bottom: 8px;
+}
+.hero p { margin: 0 0 10px; }
+.hero p:last-child { margin-bottom: 0; }
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 18px 22px;
+  margin: 0 0 14px;
+}
+
+.grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+
+@media (min-width: 660px) {
+  .grid.two { grid-template-columns: 1fr 1fr; }
+}
+
+.badge {
+  display: inline-block;
+  background: var(--bg-soft);
+  border-radius: 6px;
+  padding: 1px 8px;
+  font-size: 12.5px;
+  color: var(--fg-mute);
+  margin-right: 6px;
+}
+
+/* ---------- FAQ ---------- */
+
+details {
+  border-bottom: 1px solid var(--line);
+  padding: 12px 0;
+}
+details:last-of-type { border-bottom: none; }
+
+summary {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 15px;
+  list-style: none;
+  position: relative;
+  padding-right: 26px;
+}
+summary::-webkit-details-marker { display: none; }
+summary::after {
+  content: "+";
+  position: absolute; right: 2px; top: 0;
+  color: var(--fg-mute); font-weight: 400;
+}
+details[open] summary::after { content: "–"; }
+
+details .body { padding-top: 8px; color: var(--fg); }
+details .body p:last-child { margin-bottom: 0; }
+
+/* ---------- 表 ---------- */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14.5px;
+  margin: 0 0 16px;
+}
+th, td {
+  text-align: left;
+  padding: 9px 10px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+th { color: var(--fg-mute); font-weight: 600; font-size: 13px; }
+
+/* ---------- 页脚 ---------- */
+
+footer {
+  margin-top: 54px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  color: var(--fg-mute);
+  font-size: 13px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  align-items: center;
+}
+footer a { color: var(--fg-mute); }
+footer a:hover { color: var(--accent); }
+
+.kv { display: flex; flex-wrap: wrap; gap: 4px 20px; font-size: 14px; margin-bottom: 14px; }
+.kv span { color: var(--fg-mute); }
+.kv b { font-weight: 600; }
+
+/* ---------- 语言切换：中文 / 英文 ---------- */
+
+body[data-lang="zh"] .en { display: none !important; }
+body[data-lang="en"] .zh { display: none !important; }
